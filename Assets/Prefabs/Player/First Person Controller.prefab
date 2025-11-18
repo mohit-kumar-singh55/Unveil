@@ -877,6 +877,26 @@ MonoBehaviour:
   speed: 10
   shootPoint: {fileID: 3349445047051248766}
   paintBall: {fileID: 580919825661674552, guid: d147d458c91160442898f09eacf51ab7, type: 3}
+  decalMaterials:
+  - {fileID: 2100000, guid: d4faf98845590a842999208445a214b2, type: 2}
+  - {fileID: 2100000, guid: 0de93869cb3329e4c8df9e06ce070eb6, type: 2}
+  - {fileID: 2100000, guid: 213b34e3406c9904dbd6709954e73b17, type: 2}
+  - {fileID: 2100000, guid: 0e493b1ea582f1944807c61dfad92cbc, type: 2}
+  - {fileID: 2100000, guid: 128493330dd9050408a8ac2aa5b3b1ea, type: 2}
+  - {fileID: 2100000, guid: 6a0930ba28d07d14ab5cd46fe6bf46d6, type: 2}
+  - {fileID: 2100000, guid: 7ffa473126880c441bc84b233eecd568, type: 2}
+  - {fileID: 2100000, guid: 93ad39b47a53bf94db99656aaa2aca38, type: 2}
+  - {fileID: 2100000, guid: 9cc32e18b2827f644977dc4dd4cc7fe3, type: 2}
+  - {fileID: 2100000, guid: ee582d6d397b0184d9da887d6ab55f68, type: 2}
+  - {fileID: 2100000, guid: 88a101e75240a064886069b6eb192ab7, type: 2}
+  - {fileID: 2100000, guid: 3450c7b269cf0bb47bff9a8ad1f34242, type: 2}
+  - {fileID: 2100000, guid: a967629e11ed80148930342c56441e44, type: 2}
+  - {fileID: 2100000, guid: b59591a17db1ef84996599027337ee7e, type: 2}
+  - {fileID: 2100000, guid: 20237e2fad980ac4cb9d50b1572586d4, type: 2}
+  - {fileID: 2100000, guid: 94826130de7e0244ca47042dd93cf95c, type: 2}
+  - {fileID: 2100000, guid: 7ac6bf0e947944343af3d89e5f0caa0f, type: 2}
+  - {fileID: 2100000, guid: f30341c8024afd24f8bba96ff943ccf6, type: 2}
+  - {fileID: 2100000, guid: 10aa47eb0b0470e40a4e7ac92d114bb3, type: 2}
 --- !u!114 &1395294346939863398
 MonoBehaviour:
   m_ObjectHideFlags: 0

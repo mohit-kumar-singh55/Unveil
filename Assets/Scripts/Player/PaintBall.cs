@@ -1,10 +1,20 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PaintBall : MonoBehaviour
 {
     [SerializeField] private GameObject paintSplashDecal;
 
+    public void SetDecalMaterial(Material material)
+    {
+        if (paintSplashDecal == null) return;
+
+        if (paintSplashDecal.TryGetComponent(out DecalProjector decalProjector))
+            decalProjector.material = material;
+    }
+
+    // painting splash decal
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(LAYER.PAINTABLE))
