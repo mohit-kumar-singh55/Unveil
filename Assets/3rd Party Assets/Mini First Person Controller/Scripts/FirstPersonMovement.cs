@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +11,12 @@ public class FirstPersonMovement : MonoBehaviour
     public bool canRun = true;
     public bool IsRunning { get; private set; }
     public float runSpeed = 9;
-    public KeyCode runningKey = KeyCode.LeftShift;
 
     private Vector2 moveInput;
-    public Vector2 lookInput;
+    [NonSerialized] public Vector2 lookInput;
 
     bool sprintPressed = false;
-    public bool jumpPressed = false;
+    [NonSerialized] public bool jumpPressed = false;
 
     Rigidbody rb;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
