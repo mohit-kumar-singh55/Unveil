@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 378056738251032702}
   - component: {fileID: 3796361495637534983}
   - component: {fileID: 438487567673251328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paint Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,4 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintBall
   paintSplashDecal: {fileID: 5300998279770974055, guid: be1cd5c6674ac11479a48e5f9a5120a5, type: 3}
-  visibleMaterial: {fileID: 2100000, guid: 806a6d735e8bf1f41bcf2294c9631fc1, type: 2}
+  splashDecalParent: {fileID: 0}

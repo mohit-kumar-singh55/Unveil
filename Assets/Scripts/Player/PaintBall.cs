@@ -6,6 +6,8 @@ public class PaintBall : MonoBehaviour
 {
     [SerializeField] private GameObject paintSplashDecal;
 
+    [HideInInspector] public Transform splashDecalParent;
+
     public void SetDecalMaterial(Material material)
     {
         if (paintSplashDecal == null) return;
@@ -26,7 +28,7 @@ public class PaintBall : MonoBehaviour
             Quaternion rot = Quaternion.LookRotation(-contact.normal);      // "-" to flip the normal, otherwise it will project inside the object
 
             // TODO: replace with a pool
-            Instantiate(paintSplashDecal, pos, rot);
+            Instantiate(paintSplashDecal, pos, rot, splashDecalParent);
 
             // replace material if invisible object
             if (collision.gameObject.TryGetComponent(out InvisibleObject invisibleObject))

@@ -36,3 +36,12 @@
 
 プレイヤーが見えないドアを見つけて中に入ると、幽霊はもう追ってこなくなります。
 でも、ドアから宝物までの間には、仕掛け を入れようと思っています。
+
+*** add cutscenes ***
+- starting cutscene, in which, that the player has come here in search of treasure and he has a map of this area and it something is written on it and that is "find the treasure before 8pm, because after that ghosts gonna immortal"
+- before boss fight cutscene, just after teleporting inside the hidden room, boss ghost protecting the treasure, circling it and calling the player to come and fight
+- after winning treasure cutscene, 
+- death cutscene, 
+
+*** add a mini map marking the playable area in a circle ***
+*** give hints like sign boards or texts to find the invisible door ***

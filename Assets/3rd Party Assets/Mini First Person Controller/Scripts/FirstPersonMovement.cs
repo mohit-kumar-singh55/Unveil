@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,10 +12,10 @@ public class FirstPersonMovement : MonoBehaviour
     public float runSpeed = 9;
 
     private Vector2 moveInput;
-    [NonSerialized] public Vector2 lookInput;
+    [HideInInspector] public Vector2 lookInput;
 
     bool sprintPressed = false;
-    [NonSerialized] public bool jumpPressed = false;
+    [HideInInspector] public bool jumpPressed = false;
 
     Rigidbody rb;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
