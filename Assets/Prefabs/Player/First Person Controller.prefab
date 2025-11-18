@@ -826,7 +826,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   canRun: 1
-  runSpeed: 10
+  runSpeed: 12
+  lookInput: {x: 0, y: 0}
+  jumpPressed: 0
 --- !u!114 &7124486412531791395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f977f53412d81140ab13b3fca57cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 2
+  jumpStrength: 3
   groundCheck: {fileID: 7764711663522699767}
 --- !u!114 &1194082176706465168
 MonoBehaviour:
@@ -871,9 +873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4278d46d95e45c044bb1332fd552fe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShootPaint
-  speed: 10
+  speed: 20
+  intervalOfFire: 0.3
   shootPoint: {fileID: 3349445047051248766}
   paintBall: {fileID: 580919825661674552, guid: d147d458c91160442898f09eacf51ab7, type: 3}
+  splashDecalParent: {fileID: 0}
   decalMaterials:
   - {fileID: 2100000, guid: d4faf98845590a842999208445a214b2, type: 2}
   - {fileID: 2100000, guid: 0de93869cb3329e4c8df9e06ce070eb6, type: 2}
