@@ -7,7 +7,6 @@ public class ShootPaint : MonoBehaviour
     [SerializeField] private float intervalOfFire = .5f;    // seconds
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject paintBall;
-    [SerializeField] private Transform splashDecalParent;
     [SerializeField] private Material[] decalMaterials;
 
     private float timeElapsed;
@@ -35,7 +34,6 @@ public class ShootPaint : MonoBehaviour
         // setting random decal material
         PaintBall pb = ball.GetComponent<PaintBall>();
         pb.SetDecalMaterial(decalMaterials[Random.Range(0, decalMaterials.Length)]);
-        pb.splashDecalParent = splashDecalParent;   // passing splash decal parent
 
         timeElapsed = 0;
     }

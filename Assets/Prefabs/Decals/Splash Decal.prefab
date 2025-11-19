@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645713953144961949}
   - component: {fileID: 4573192433732495711}
+  - component: {fileID: 8872268552311303785}
   m_Layer: 0
   m_Name: Splash Decal
   m_TagString: Untagged
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
-  m_Material: {fileID: 2100000, guid: 213b34e3406c9904dbd6709954e73b17, type: 2}
+  m_Material: {fileID: 2100000, guid: 0de93869cb3329e4c8df9e06ce070eb6, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 0.9
   m_StartAngleFade: 180
@@ -60,3 +61,18 @@ MonoBehaviour:
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
+--- !u!114 &8872268552311303785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300998279770974055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6980f4276406b44ad3dcd8f3d17ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DecalRenderingLayer
+  renderingLayer:
+    serializedVersion: 0
+    m_Bits: 2
