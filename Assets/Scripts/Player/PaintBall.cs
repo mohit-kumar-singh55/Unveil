@@ -37,7 +37,7 @@ public class PaintBall : MonoBehaviour
         DecalRenderingLayer decalRenderingLayer = Instantiate(paintSplashDecal, pos, rot, collidedWith.transform).GetComponent<DecalRenderingLayer>();    // parented to the collided object so it moves with object
 
         // change rendering layer for ghost decals
-        decalRenderingLayer.ChangeRenderingLayer();
+        if (isGhost) decalRenderingLayer.ChangeRenderingLayer();
 
         // replace material if invisible object
         if (collidedWith.TryGetComponent(out InvisibleObject invisibleObject))
