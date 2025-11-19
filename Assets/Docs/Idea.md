@@ -45,3 +45,4 @@
 
 *** add a mini map marking the playable area in a circle ***
 *** give hints like sign boards or texts to find the invisible door ***
+*** add tricks like, place arrow decals on some places just like for invisible door, but instead of invisible door, place there an invisible ghost

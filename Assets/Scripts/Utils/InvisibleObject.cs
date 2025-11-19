@@ -2,19 +2,25 @@ using UnityEngine;
 
 public class InvisibleObject : MonoBehaviour
 {
-    [SerializeField] Material originalMaterial;     // The material to use when the object become visible
+    [Tooltip("オブジェクトを見えない状態にするために使用するマテリアル")]
+    [SerializeField] private Material invisibleMaterial;       // The material to use to make object invisible
 
     private MeshRenderer meshRenderer;
+    private Material[] originalMaterials;       // The material to use when the object become visible
 
     void Awake()
     {
-        TryGetComponent(out meshRenderer);
+        if (TryGetComponent(out meshRenderer))
+        {
+            originalMaterials = meshRenderer.materials;
+            meshRenderer.materials = new Material[] { invisibleMaterial };
+        }
     }
 
     public void ReplaceMaterialWithOriginal()
     {
         if (meshRenderer == null) return;
 
-        meshRenderer.material = originalMaterial;
+        meshRenderer.materials = originalMaterials;
     }
 }
