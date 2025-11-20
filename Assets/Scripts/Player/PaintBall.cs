@@ -25,8 +25,15 @@ public class PaintBall : MonoBehaviour
             // check if it's a ghost (collider is on the child object but tag is on the parent)
             bool isGhost = collision.gameObject.CompareTag(TAGS.GHOST);
 
-            // if it's a ghost, activate it
-            if (isGhost) collision.gameObject.GetComponentInParent<GhostController>().Activate();
+            // if it's a ghost
+            if (isGhost)
+            {
+                // activate it
+                collision.gameObject.GetComponentInParent<GhostController>().Activate();
+
+                // set "Exclude layers" to Nothing in ghost collider
+                collision.gameObject.GetComponent<Collider>().excludeLayers = 0;
+            }
 
             // show the decal
             PlaceSplashDecal(contact.point, contact.normal, collision.gameObject, isGhost);

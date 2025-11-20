@@ -97,6 +97,7 @@ MonoBehaviour:
   - rid: 2312925419361796369
   - rid: 2312925419361796370
   - rid: 2312925425365680356
+  - rid: 2312925425365681112
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -127,6 +128,14 @@ MonoBehaviour:
           m_Value1: 17549755018904617994
         Name: GhostAnimator
         m_Value: {fileID: 6796856949004183078}
+    - rid: 2312925425365681112
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16087522467855923486
+          m_Value1: 11410702265046231899
+        Name: RotateUptoAngle
+        m_Value: 1
 --- !u!114 &3231889554988956530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +269,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
