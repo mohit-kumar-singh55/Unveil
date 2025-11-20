@@ -47,4 +47,8 @@
 *** give hints like sign boards or texts to find the invisible door ***
 *** add tricks like, place arrow decals on some places just like for invisible door, but instead of invisible door, place there an invisible ghost ***
 
+=> for ghost attack on player when ghost is near the player: 
+    - stop player movement and ghost's animation, play the preanimated cutscene that a hand came out of the ghost's mouth and grabbed the camera and then lifting and throwing the player -> health damage/gmae over
+    - ghost giving a Headbutt to the player and player took the damage and game over maybe
+
 => using behaviour trees for ghost AI
