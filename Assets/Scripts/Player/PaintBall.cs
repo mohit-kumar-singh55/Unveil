@@ -31,8 +31,8 @@ public class PaintBall : MonoBehaviour
                 // activate it
                 collision.gameObject.GetComponentInParent<GhostController>().Activate();
 
-                // set "Exclude layers" to Nothing in ghost collider
-                collision.gameObject.GetComponent<Collider>().excludeLayers = 0;
+                // set "Exclude layers" to Nothing in ghost collider to make it collide with player
+                collision.collider.excludeLayers = 0;
             }
 
             // show the decal

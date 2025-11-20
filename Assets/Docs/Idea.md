@@ -52,3 +52,5 @@
     - ghost giving a Headbutt to the player and player took the damage and game over maybe
 
 => using behaviour trees for ghost AI
+
+=> active ghost makes one more ghost active, if not killed on time
