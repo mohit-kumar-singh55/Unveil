@@ -4,9 +4,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class PlayerAxeController : MonoBehaviour
 {
-    // [SerializeField] private float timeBetweenAttacks = 0.5f;
-
-    // private float elapsedTime = 0f;
     private Animator _animator;
     private GameObject AxeModel;
     private readonly int _attackID = Animator.StringToHash("Attack");

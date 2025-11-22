@@ -98,6 +98,7 @@ MonoBehaviour:
   - rid: 2312925419361796370
   - rid: 2312925425365680356
   - rid: 2312925425365681112
+  - rid: 2312925469032055126
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -136,6 +137,14 @@ MonoBehaviour:
           m_Value1: 11410702265046231899
         Name: RotateUptoAngle
         m_Value: 1
+    - rid: 2312925469032055126
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13485347463775037148
+          m_Value1: 12297142727464804883
+        Name: WaitTimeAfterAttack
+        m_Value: 1
 --- !u!114 &3231889554988956530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GhostController
   _makeDuplicateGhostAfterSeconds: 30
   _giveDamageToPlayer: 10
+  _noOfHitsCanBeTaken: 3
+  _damageTakenMaterial: {fileID: 2100000, guid: cd427229f1d681f459c6541fe1e1e74b, type: 2}
 --- !u!1001 &5542865672655677114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,6 +263,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2929141121762748375}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4062414993362468421}
   m_SourcePrefab: {fileID: 100100000, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
 --- !u!1 &4624457016244706283 stripped
 GameObject:
@@ -293,6 +307,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InvisibleObject
   invisibleMaterial: {fileID: 2100000, guid: d719a294fbb65a34b932927550e8a909, type: 2}
+--- !u!114 &4062414993362468421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624457016244706283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1c133baec0b504f829f1e14a285a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostCollisionHandler
 --- !u!4 &5433187828687454545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
