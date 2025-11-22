@@ -47,6 +47,7 @@ public class FirstPersonMovement : MonoBehaviour
         rb.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.y);
     }
 
+    // player input callbacks
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();

@@ -991,6 +991,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Weapon",
+            "id": "53b04421-562d-4a57-a024-9ab4923dc4c2",
+            "actions": [
+                {
+                    "name": "AxeAttack",
+                    "type": "Button",
+                    "id": "84c2bb4e-b81e-44e3-b144-166983e00e02",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "06a21eed-e9cd-43b1-b492-4bf1505e6ad6",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "AxeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

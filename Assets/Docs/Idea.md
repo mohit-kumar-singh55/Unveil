@@ -54,3 +54,7 @@
 => using behaviour trees for ghost AI
 
 => active ghost makes one more ghost active, if not killed on time
+
+*** change camera to cinemachine ***
+
+=> after taking (lets say 3) hits from the player's axe, ghost will become small and stop coming/attacking the player for some time
