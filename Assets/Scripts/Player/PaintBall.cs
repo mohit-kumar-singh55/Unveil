@@ -23,7 +23,7 @@ public class PaintBall : MonoBehaviour
             ContactPoint contact = collision.contacts[0];
 
             // check if it's a ghost (collider is on the child object but tag is on the parent)
-            bool isGhost = collision.gameObject.CompareTag(TAGS.GHOST);
+            bool isGhost = collision.transform.parent != null && collision.transform.parent.CompareTag(TAGS.GHOST);
 
             // if it's a ghost
             if (isGhost)
