@@ -34,7 +34,7 @@ public class GhostsManager : MonoBehaviour
     }
 
     /// <summary>
-    /// activate any non-active ghost
+    /// activate "any" non-active ghost
     /// </summary>
     public void ActivateAnyGhost()
     {
@@ -45,8 +45,8 @@ public class GhostsManager : MonoBehaviour
             // activate ghost
             nonActiveGhost.enabled = true;
 
-            // set "Exclude layers" to Nothing in ghost collider to make it collide with player
-            nonActiveGhost.gameObject.GetComponentInChildren<Collider>().excludeLayers = 0;
+            // activate the ghost
+            nonActiveGhost.gameObject.GetComponent<GhostController>().Activate();
 
             // replacing material with original material
             nonActiveGhost.gameObject.GetComponentInChildren<InvisibleObject>().ReplaceMaterialWithOriginal();

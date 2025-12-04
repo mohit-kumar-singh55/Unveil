@@ -1,8 +1,9 @@
 using System.Collections;
 using Unity.Behavior;
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(BehaviorGraphAgent))]
+[RequireComponent(typeof(BehaviorGraphAgent), typeof(NavMeshAgent))]
 public class GhostController : MonoBehaviour
 {
     [Header("Settings")]
@@ -20,6 +21,9 @@ public class GhostController : MonoBehaviour
     private GhostsManager _ghostsManager;
     private BehaviorGraphAgent _behaviorGraphAgent;
     private MeshRenderer _ghostMeshRenderer;
+    private Collider _ghostTempCollider;    // only used when ghost is hit
+    private MeshCollider _ghostMeshCollider;    // original mesh collider of the ghost used for painting
+    private NavMeshAgent _navMeshAgent;
 
     public bool IsAttacking => _isAttacking;
     public float DamageToPlayer => _giveDamageToPlayer;
@@ -42,8 +46,12 @@ public class GhostController : MonoBehaviour
 
     void Start()
     {
+        // *** init ***
         // need this to change the material to show hit
         _ghostMeshRenderer = GetComponentInChildren<MeshRenderer>();
+        _ghostMeshCollider = transform.GetChild(0).GetComponent<MeshCollider>();
+        _ghostTempCollider = GetComponent<Collider>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     /// <summary>
@@ -53,15 +61,21 @@ public class GhostController : MonoBehaviour
     {
         _behaviorGraphAgent.enabled = activate;
 
-        // make a duplicate ghost
-        if (activate) StartCoroutine(MakeDuplicateGhost());
+        if (activate)
+        {
+            // set "Exclude layers" to Nothing in ghost collider to make it collide with player
+            _ghostMeshCollider.excludeLayers = 0;
+
+            // make a duplicate ghost
+            StartCoroutine(MakeDuplicateGhost());
+        }
         else StopAllCoroutines();
     }
 
     // it will be called from the animation event (clip)
     public void SetIsAttacking() => _isAttacking = !_isAttacking;
 
-    public void OnHitByPlayerAxe()
+    public void OnHitByPlayerAxe(Vector3 hitDirection)
     {
         // TODO: show hit animation and play sfx
         if (_noOfHitsTaken >= _noOfHitsCanBeTaken) return;
@@ -69,18 +83,48 @@ public class GhostController : MonoBehaviour
         _noOfHitsTaken++;
         transform.localScale *= 0.8f;       // reduce the ghost's scale
 
+        // stopping behavior graph temporarily
+        _navMeshAgent.enabled = false;
+        _behaviorGraphAgent.enabled = false;
+
+        // changing active collider to use physics
+        _ghostTempCollider.isTrigger = false;
+        _ghostMeshCollider.convex = true;
+        _ghostMeshCollider.isTrigger = true;
+
+        // adding rb to apply force
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.AddForceAtPosition(hitDirection.normalized * 20f, transform.position, ForceMode.Impulse);
+
+        // resetting above values after some delay
+        StartCoroutine(ResetValuesAfterDelay(2f));
+
         // replacing 1st matrial with damage material for sometime
         Material originalMaterial = _ghostMeshRenderer.material;
         _ghostMeshRenderer.material = _damageTakenMaterial;
-
-        StartCoroutine(ReplaceMaterialWithOriginal(.2f, originalMaterial));
+        StartCoroutine(ReplaceMaterialWithOriginal(.2f, originalMaterial)); // replace mat with original
 
         // deactivate the ghost
         if (_noOfHitsTaken >= _noOfHitsCanBeTaken)
         {
+            ResetHitValues();
             Activate(false);
-            GetComponentInChildren<Collider>().enabled = false;
+            _ghostMeshCollider.enabled = false;
         }
+    }
+
+    private void ResetHitValues()
+    {
+        // reset collider and rigidbody
+        _ghostTempCollider.isTrigger = true;
+        _ghostMeshCollider.isTrigger = false;
+        _ghostMeshCollider.convex = false;
+        if (TryGetComponent(out Rigidbody rb)) Destroy(rb); // without removing rb, ghost not gonna collide with paint balls properly
+
+        // enable navmesh agent and behavior graph
+        _navMeshAgent.enabled = true;
+        _behaviorGraphAgent.enabled = true;
     }
 
     IEnumerator MakeDuplicateGhost()
@@ -93,5 +137,11 @@ public class GhostController : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         _ghostMeshRenderer.material = originalMaterial;
+    }
+
+    IEnumerator ResetValuesAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ResetHitValues();
     }
 }

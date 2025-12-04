@@ -769,7 +769,6 @@ GameObject:
   - component: {fileID: 1194082176706465168}
   - component: {fileID: 6909777168173448328}
   - component: {fileID: 681509949595329846}
-  - component: {fileID: 2338010977808184601}
   - component: {fileID: 8484784704382707360}
   - component: {fileID: 5648225578082677588}
   - component: {fileID: 1395294346939863398}
@@ -951,22 +950,6 @@ MonoBehaviour:
   _maxHealth: 100
   _currentHealth: 100
   _takeNextDamageAfter: 0.5
---- !u!114 &2338010977808184601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4573666767070675272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b810409a0c03940b0a55b164b8e0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthShaderController
-  _vignetteIntensity: 1
-  _vignettePower: 2
-  _fullScreenHealthShader: {fileID: 7897743846014655107, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
-  _material: {fileID: 2100000, guid: b8e9355d21fd73040b1bb882b5654a10, type: 2}
 --- !u!114 &8484784704382707360
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8339721403936668137}
   - component: {fileID: 1946033571540573545}
   - component: {fileID: 3231889554988956530}
+  - component: {fileID: 2465185465335181766}
   m_Layer: 3
   m_Name: Ghost
   m_TagString: Ghost
@@ -161,6 +162,29 @@ MonoBehaviour:
   _giveDamageToPlayer: 10
   _noOfHitsCanBeTaken: 3
   _damageTakenMaterial: {fileID: 2100000, guid: cd427229f1d681f459c6541fe1e1e74b, type: 2}
+--- !u!136 &2465185465335181766
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984372218533824959}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6027603
+  m_Height: 2.0092888
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.17989731, z: -0.03}
 --- !u!1001 &5542865672655677114
 PrefabInstance:
   m_ObjectHideFlags: 0
