@@ -51,10 +51,11 @@
     - stop player movement and ghost's animation, play the preanimated cutscene that a hand came out of the ghost's mouth and grabbed the camera and then lifting and throwing the player -> health damage/gmae over
     - ghost giving a Headbutt to the player and player took the damage and game over maybe
 
-=> using behaviour trees for ghost AI
+<!-- => using behaviour trees for ghost AI -->
 
-=> active ghost makes one more ghost active, if not killed on time
+<!-- => active ghost makes one more ghost active, if not killed on time -->
 
 *** change camera to cinemachine ***
 
-=> after taking (lets say 3) hits from the player's axe, ghost will become small and stop coming/attacking the player for some time
+<!-- => after taking (lets say 3) hits from the player's axe, ghost will become small and stop coming/attacking the player for some time -->
+=> player can use 3 combo attack of axe
