@@ -3,13 +3,17 @@ using UnityEngine.InputSystem;
 
 public class ShootPaint : MonoBehaviour
 {
+    #region Serialized Properties
     [SerializeField] private float speed = 20f;
     [SerializeField] private float intervalOfFire = .5f;    // seconds
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject paintBall;
     [SerializeField] private Material[] decalMaterials;
+    #endregion
 
+    #region Private Properties
     private float timeElapsed;
+    #endregion
 
     void Update()
     {

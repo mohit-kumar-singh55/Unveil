@@ -14,7 +14,6 @@ public class GhostCollisionHandler : MonoBehaviour
         // checking if being attacked by player axe
         if (collision.gameObject.CompareTag(TAGS.AXE))
         {
-            Debug.Log("Ghost hit by axe via OnCollisionEnter");
             ghostController.OnHitByPlayerAxe(collision.GetContact(0).point - collision.transform.position);
         }
     }

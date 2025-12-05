@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(BehaviorGraphAgent), typeof(NavMeshAgent))]
 public class GhostController : MonoBehaviour
 {
+    #region Serialized Properties
     [Header("Settings")]
     [Tooltip("Time in seconds after which the ghost will make a duplicate ghost")]
     [SerializeField] private float _makeDuplicateGhostAfterSeconds = 30f;
@@ -15,7 +16,9 @@ public class GhostController : MonoBehaviour
     [Tooltip("No. of times the ghost can be hit before it is deactivated")]
     [SerializeField] private int _noOfHitsCanBeTaken = 3;
     [SerializeField] private Material _damageTakenMaterial;
+    #endregion
 
+    #region Private Properties
     private bool _isAttacking = false;
     private int _noOfHitsTaken = 0;
     private bool _isDead = false;
@@ -25,10 +28,13 @@ public class GhostController : MonoBehaviour
     private Collider _ghostTempCollider;    // only used when ghost is hit
     private MeshCollider _ghostMeshCollider;    // original mesh collider of the ghost used for painting
     private NavMeshAgent _navMeshAgent;
+    #endregion
 
+    #region Public Properties
     public bool IsDead => _isDead;
     public bool IsAttacking => _isAttacking;
     public float DamageToPlayer => _giveDamageToPlayer;
+    #endregion
 
     void OnDisable()
     {

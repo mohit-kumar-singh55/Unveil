@@ -5,12 +5,16 @@ using UnityEngine;
 // Instead of showing health bar, strengthen the vegnette type shader
 public class PlayerHealth : Health
 {
+    #region Serialized Properties
     [Tooltip("How long to wait before taking next damage")]
     [SerializeField] private float _takeNextDamageAfter = 0.5f;
+    #endregion
 
+    #region Private Properties
     private float _timeSinceLastDamage = 0f;
     private HealthShaderController _healthShader;
     private DamageShaderController _damageShader;
+    #endregion
 
     void Start()
     {

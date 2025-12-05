@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class HealthShaderController : MonoBehaviour
 {
+    #region Serialized Properties
     [Header("Settings")]
     [Tooltip("Initial Vignette Intensity")]
     [SerializeField] private float _vignetteIntensity = 1f;     // don't change
@@ -11,9 +12,12 @@ public class HealthShaderController : MonoBehaviour
     [Header("References")]
     [SerializeField] private ScriptableRendererFeature _fullScreenHealthShader;
     [SerializeField] private Material _material;
+    #endregion
 
+    #region Private Properties
     private readonly int _vignetteIntensityID = Shader.PropertyToID("_VignetteIntensity");
     private readonly int _vignettePowerID = Shader.PropertyToID("_VignettePower");
+    #endregion
 
     void Start()
     {

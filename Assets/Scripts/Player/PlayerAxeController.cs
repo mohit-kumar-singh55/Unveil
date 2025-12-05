@@ -5,11 +5,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class PlayerAxeController : MonoBehaviour
 {
+    #region Serialized Properties
     [Tooltip("Force with which the axe is thrown in 3rd attack.")]
     [SerializeField] private float _axeThrowForce = 50f;
     [Tooltip("Starting point from where the axe is thrown and will return to.")]
     [SerializeField] private Transform _startingPoint;
+    #endregion
 
+    #region Private Properties
     private Animator _animator;
     private GameObject AxeModel;
     private Camera _cam;
@@ -20,9 +23,12 @@ public class PlayerAxeController : MonoBehaviour
     private bool _isAttacking = false;
     private int _noOfTimesPressed = 0;
     private float _lastPressedTime = 0f;
+    #endregion
 
+    #region Constants
     private const int NO_OF_ATTACKS_AVAILABLE = 3;  // total no. of attacks implemented in the game
     private const float MAX_TIME_TO_WAIT_BETWEEN_INPUTS = 0.25f;    // wait for inputs only upto this time
+    #endregion
 
     void Awake()
     {
@@ -41,30 +47,17 @@ public class PlayerAxeController : MonoBehaviour
 
     void Update()
     {
+        // if button not pressed or already attacking, return
         if (_isAttacking || _noOfTimesPressed <= 0) return;
 
+        // wait for inputs
         if (_lastPressedTime < MAX_TIME_TO_WAIT_BETWEEN_INPUTS && _noOfTimesPressed < NO_OF_ATTACKS_AVAILABLE) _lastPressedTime += Time.deltaTime;
+        // if enough time has elapsed, start attack
         else if (_lastPressedTime >= MAX_TIME_TO_WAIT_BETWEEN_INPUTS || _noOfTimesPressed >= NO_OF_ATTACKS_AVAILABLE)
         {
-            _isAttacking = true;
+            StartAxeAttack(_noOfTimesPressed);
 
-            switch (_noOfTimesPressed)
-            {
-                case 1:
-                    AxeAttackOneAndTwo(_attack1ID);
-                    break;
-                case 2:
-                    AxeAttackOneAndTwo(_attack2ID);
-                    break;
-                case 3:
-                    AxeAttackThree();
-                    break;
-                default:
-                    AxeAttackThree();
-                    break;
-            }
-
-            // reset values and call attack funcs
+            // reset values
             _noOfTimesPressed = 0;
             _lastPressedTime = 0f;
         }
@@ -84,6 +77,27 @@ public class PlayerAxeController : MonoBehaviour
     {
         _isAttacking = false;
         AxeModel.SetActive(false);
+    }
+
+    private void StartAxeAttack(int attack_no)
+    {
+        _isAttacking = true;
+
+        switch (attack_no)
+        {
+            case 1:
+                AxeAttackOneAndTwo(_attack1ID);
+                break;
+            case 2:
+                AxeAttackOneAndTwo(_attack2ID);
+                break;
+            case 3:
+                AxeAttackThree();
+                break;
+            default:
+                AxeAttackThree();
+                break;
+        }
     }
 
     private void AxeAttackOneAndTwo(int attackID)

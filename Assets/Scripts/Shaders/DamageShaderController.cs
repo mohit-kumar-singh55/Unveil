@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class DamageShaderController : MonoBehaviour
 {
+    #region Serialized Properties
     [Header("Time Settings")]
     [SerializeField] private float _damageDisplayTime = 1f;
     [SerializeField] private float _damageFadeOutTime = .5f;
@@ -17,9 +18,12 @@ public class DamageShaderController : MonoBehaviour
     [Header("References")]
     [SerializeField] private ScriptableRendererFeature _fullScreenDamageShader;
     [SerializeField] private Material _material;
+    #endregion
 
+    #region Private Properties
     private readonly int _vignetteIntensityID = Shader.PropertyToID("_VignetteIntensity");
     private readonly int _voronoiIntensityID = Shader.PropertyToID("_VoronoiIntensity");
+    #endregion
 
     void Start()
     {
@@ -41,9 +45,9 @@ public class DamageShaderController : MonoBehaviour
         float elapsedTime = 0;
         while (elapsedTime < _damageFadeOutTime)
         {
-            elapsedTime += Time.deltaTime;
-            _material.SetFloat(_vignetteIntensityID, Mathf.Lerp(_vignetteIntensity, 0, elapsedTime / _damageFadeOutTime));
-            _material.SetFloat(_voronoiIntensityID, Mathf.Lerp(_voronoiIntensity, 0, elapsedTime / _damageFadeOutTime));
+            elapsedTime += Time.deltaTime / _damageFadeOutTime;
+            _material.SetFloat(_vignetteIntensityID, Mathf.Lerp(_vignetteIntensity, 0, elapsedTime));
+            _material.SetFloat(_voronoiIntensityID, Mathf.Lerp(_voronoiIntensity, 0, elapsedTime));
             yield return null;
         }
 

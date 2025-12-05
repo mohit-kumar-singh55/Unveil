@@ -7,7 +7,7 @@ public class GhostsManager : MonoBehaviour
 {
     [SerializeField] private string ghostStopWorkingVariableName = "StopWorking";
 
-    private List<BehaviorGraphAgent> ghostAgents = new();
+    private readonly List<BehaviorGraphAgent> ghostAgents = new();
 
     void Start()
     {
