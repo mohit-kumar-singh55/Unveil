@@ -38,7 +38,7 @@ public class GhostsManager : MonoBehaviour
     /// </summary>
     public void ActivateAnyGhost()
     {
-        BehaviorGraphAgent nonActiveGhost = ghostAgents.Find(ghostAgent => !ghostAgent.enabled);
+        BehaviorGraphAgent nonActiveGhost = ghostAgents.Find(ghostAgent => !ghostAgent.enabled && !ghostAgent.gameObject.GetComponent<GhostController>().IsDead);
 
         if (nonActiveGhost != null)
         {

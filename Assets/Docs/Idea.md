@@ -59,3 +59,4 @@
 
 <!-- => after taking (lets say 3) hits from the player's axe, ghost will become small and stop coming/attacking the player for some time -->
 => player can use 3 combo attack of axe
+    - there are 3 axe attacks availble rn. by pressing R once, twice and thrice

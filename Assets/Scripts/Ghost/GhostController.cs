@@ -18,6 +18,7 @@ public class GhostController : MonoBehaviour
 
     private bool _isAttacking = false;
     private int _noOfHitsTaken = 0;
+    private bool _isDead = false;
     private GhostsManager _ghostsManager;
     private BehaviorGraphAgent _behaviorGraphAgent;
     private MeshRenderer _ghostMeshRenderer;
@@ -25,6 +26,7 @@ public class GhostController : MonoBehaviour
     private MeshCollider _ghostMeshCollider;    // original mesh collider of the ghost used for painting
     private NavMeshAgent _navMeshAgent;
 
+    public bool IsDead => _isDead;
     public bool IsAttacking => _isAttacking;
     public float DamageToPlayer => _giveDamageToPlayer;
 
@@ -70,6 +72,9 @@ public class GhostController : MonoBehaviour
             StartCoroutine(MakeDuplicateGhost());
         }
         else StopAllCoroutines();
+
+        // if dead, it will not be activated again by any other ghost while making duplicates
+        _isDead = !activate;
     }
 
     // it will be called from the animation event (clip)
@@ -98,7 +103,7 @@ public class GhostController : MonoBehaviour
         rb.AddForceAtPosition(hitDirection.normalized * 20f, transform.position, ForceMode.Impulse);
 
         // resetting above values after some delay
-        StartCoroutine(ResetValuesAfterDelay(2f));
+        StartCoroutine(ResetValuesAfterDelay(4f));
 
         // replacing 1st matrial with damage material for sometime
         Material originalMaterial = _ghostMeshRenderer.material;
