@@ -9,7 +9,6 @@ public class FirstPersonLook : MonoBehaviour
     Vector2 velocity;
     Vector2 frameVelocity;
 
-
     void Reset()
     {
         // Get the character from the FirstPersonMovement in parents.
@@ -26,7 +25,7 @@ public class FirstPersonLook : MonoBehaviour
     void Update()
     {
         // Get smooth velocity.
-        Vector2 mouseDelta = new Vector2(character.lookInput.x, character.lookInput.y);
+        Vector2 mouseDelta = new(character.lookInput.x, character.lookInput.y);
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
         frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
         velocity += frameVelocity;
