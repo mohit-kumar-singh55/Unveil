@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,7 @@ public class PlayerAxeController : MonoBehaviour
     private Camera _cam;
     private Rigidbody _axeRigidbody;
     private MeshCollider _axeCollider;
+    private CinemachineImpulseSource _impulseSource;
     private readonly int _attack1ID = Animator.StringToHash("Attack1");
     private readonly int _attack2ID = Animator.StringToHash("Attack2");
     private bool _isAttacking = false;
@@ -34,13 +36,24 @@ public class PlayerAxeController : MonoBehaviour
     {
         _cam = Camera.main;
         _animator = GetComponent<Animator>();
+        _impulseSource = TryGetComponent(out CinemachineImpulseSource impulseSource) ? impulseSource : null;
+
+        if (!_startingPoint || !_impulseSource)
+        {
+            Debug.LogError("Impulse source not found on the Axe model or Starting point not assigned.");
+            enabled = false;
+        }
+    }
+
+    void Start()
+    {
         AxeModel = transform.GetChild(0).gameObject;
         _axeRigidbody = AxeModel.TryGetComponent(out Rigidbody rb) ? rb : null;
         _axeCollider = AxeModel.TryGetComponent(out MeshCollider col) ? col : null;
 
-        if (!_axeRigidbody || !_startingPoint || !_axeCollider)
+        if (!_axeRigidbody || !_axeCollider)
         {
-            Debug.LogError("Rigidbody or Axe mesh collider not found on the Axe model or or Starting point not assigned.");
+            Debug.LogError("Rigidbody or Axe mesh collider not found on the Axe model.");
             enabled = false;
         }
     }
@@ -98,6 +111,9 @@ public class PlayerAxeController : MonoBehaviour
                 AxeAttackThree();
                 break;
         }
+
+        // camera shake
+        _impulseSource.GenerateImpulse();
     }
 
     private void AxeAttackOneAndTwo(int attackID)
@@ -134,25 +150,29 @@ public class PlayerAxeController : MonoBehaviour
         // stopping axe movement
         _axeRigidbody.linearVelocity = Vector3.zero;
 
-        // reattach the axe model to the axe root
-        AxeModel.transform.parent = gameObject.transform;
-
         // reset scale (because scale changes when detaching and attaching to the axe root)
         AxeModel.transform.localScale = Vector3.one;
 
         // to avoid any collision interference during way back to the starting position
-        _axeRigidbody.isKinematic = true;
+        float previousMass = _axeRigidbody.mass;
+        _axeRigidbody.mass = 0f;
         _axeCollider.enabled = false;
 
         // move upto starting point
-        while (AxeModel.transform.position != _startingPoint.position)
+        while (Vector3.Distance(AxeModel.transform.position, _startingPoint.position) > 0.1f)
         {
             AxeModel.transform.position = Vector3.MoveTowards(AxeModel.transform.position, _startingPoint.position, 50f * Time.deltaTime);
             yield return null;
         }
 
+        _impulseSource.GenerateImpulse();
+
+        // reattach the axe model to the axe root
+        AxeModel.transform.parent = gameObject.transform;
+        AxeModel.transform.rotation = _startingPoint.rotation;
+
         // reactivate the collision
-        _axeRigidbody.isKinematic = false;
+        _axeRigidbody.mass = previousMass;
         _axeCollider.enabled = true;
 
         // reactivate animations

@@ -1,8 +1,8 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthShaderController), typeof(DamageShaderController))]
-
 // Instead of showing health bar, strengthen the vegnette type shader
+[RequireComponent(typeof(HealthShaderController), typeof(DamageShaderController))]
 public class PlayerHealth : Health
 {
     #region Serialized Properties
@@ -14,7 +14,19 @@ public class PlayerHealth : Health
     private float _timeSinceLastDamage = 0f;
     private HealthShaderController _healthShader;
     private DamageShaderController _damageShader;
+    private CinemachineImpulseSource _impulseSource;
     #endregion
+
+    void Awake()
+    {
+        _impulseSource = TryGetComponent(out CinemachineImpulseSource impulseSource) ? impulseSource : null;
+
+        if (!_impulseSource)
+        {
+            Debug.LogError("Impulse source not found on the player.");
+            enabled = false;
+        }
+    }
 
     void Start()
     {
@@ -52,6 +64,9 @@ public class PlayerHealth : Health
 
         // display damage effect
         _damageShader.ShowDamageEffect();
+
+        // camera shake
+        _impulseSource.GenerateImpulse();
 
         // reset timer
         _timeSinceLastDamage = 0f;
