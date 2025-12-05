@@ -42034,15 +42034,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 488
+      value: 583.8
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18
+      value: 21.6
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 399
+      value: 408.5
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalRotation.w

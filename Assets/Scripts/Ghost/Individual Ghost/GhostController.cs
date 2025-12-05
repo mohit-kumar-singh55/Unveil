@@ -12,9 +12,16 @@ public class GhostController : MonoBehaviour
     [SerializeField] private float _makeDuplicateGhostAfterSeconds = 30f;
     [Tooltip("Amount of damage the ghost will give to the player")]
     [SerializeField] private float _giveDamageToPlayer = 10f;
+
     [Header("Got Hit Settings")]
     [Tooltip("No. of times the ghost can be hit before it is deactivated")]
     [SerializeField] private int _noOfHitsCanBeTaken = 3;
+    [Tooltip("Scale of the ghost after being hit in percentage of its original scale")]
+    [SerializeField] private float _scaleToBeReducedTo = 0.8f;
+    [Tooltip("Force to be applied to the ghost after being hit")]
+    [SerializeField] private float _forceToBeApplied = 20f;
+    [Tooltip("Time after which the ghost will reactivate itself after being hit")]
+    [SerializeField] private float _reactivateGhostAfterSeconds = 4f;
     [SerializeField] private Material _damageTakenMaterial;
     #endregion
 
@@ -92,7 +99,7 @@ public class GhostController : MonoBehaviour
         if (_noOfHitsTaken >= _noOfHitsCanBeTaken) return;
 
         _noOfHitsTaken++;
-        transform.localScale *= 0.8f;       // reduce the ghost's scale
+        transform.localScale *= _scaleToBeReducedTo;       // reduce the ghost's scale
 
         // stopping behavior graph temporarily
         _navMeshAgent.enabled = false;
@@ -106,10 +113,10 @@ public class GhostController : MonoBehaviour
         // adding rb to apply force
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = false;
-        rb.AddForceAtPosition(hitDirection.normalized * 20f, transform.position, ForceMode.Impulse);
+        rb.AddForceAtPosition(hitDirection.normalized * _forceToBeApplied, transform.position, ForceMode.Impulse);
 
         // resetting above values after some delay
-        StartCoroutine(ResetValuesAfterDelay(4f));
+        StartCoroutine(ResetValuesAfterDelay(_reactivateGhostAfterSeconds));
 
         // replacing 1st matrial with damage material for sometime
         Material originalMaterial = _ghostMeshRenderer.material;
