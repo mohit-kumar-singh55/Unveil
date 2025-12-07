@@ -7,10 +7,8 @@ using UnityEngine.AI;
 public class GhostController : MonoBehaviour
 {
     #region Serialized Properties
-    [Header("Settings")]
-    [Tooltip("Time in seconds after which the ghost will make a duplicate ghost")]
-    [SerializeField] private float _makeDuplicateGhostAfterSeconds = 30f;
-    [Tooltip("Amount of damage the ghost will give to the player")]
+    [Header("General Settings")]
+    [Tooltip("Amount of damage the ghost will give to the player using Headbutt")]
     [SerializeField] private float _giveDamageToPlayer = 10f;
 
     [Header("Got Hit Settings")]
@@ -29,7 +27,7 @@ public class GhostController : MonoBehaviour
     private bool _isAttacking = false;
     private int _noOfHitsTaken = 0;
     private bool _isDead = false;
-    private GhostsManager _ghostsManager;
+    private bool _isActivated = false;
     private BehaviorGraphAgent _behaviorGraphAgent;
     private MeshRenderer _ghostMeshRenderer;
     private Collider _ghostTempCollider;    // only used when ghost is hit
@@ -53,13 +51,12 @@ public class GhostController : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void Awake()
+    protected virtual void Awake()
     {
-        _ghostsManager = GetComponentInParent<GhostsManager>();
         _behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         // *** init ***
         // need this to change the material to show hit
@@ -72,22 +69,20 @@ public class GhostController : MonoBehaviour
     /// <summary>
     /// Activates or deactivates the ghost's AI and makes a duplicate ghost
     /// </summary>
-    public void Activate(bool activate = true)
+    public virtual void Activate(bool activate = true)
     {
+        // ignore if already activated
+        if (_isActivated == activate) return;
+
         _behaviorGraphAgent.enabled = activate;
 
-        if (activate)
-        {
-            // set "Exclude layers" to Nothing in ghost collider to make it collide with player
-            _ghostMeshCollider.excludeLayers = 0;
-
-            // make a duplicate ghost
-            StartCoroutine(MakeDuplicateGhost());
-        }
+        // set "Exclude layers" to Nothing in ghost collider to make it collide with player
+        if (activate) _ghostMeshCollider.excludeLayers = 0;
         else StopAllCoroutines();
 
         // if dead, it will not be activated again by any other ghost while making duplicates
         _isDead = !activate;
+        _isActivated = activate;
     }
 
     // it will be called from the animation event (clip)
@@ -143,12 +138,6 @@ public class GhostController : MonoBehaviour
         // enable navmesh agent and behavior graph
         _navMeshAgent.enabled = true;
         _behaviorGraphAgent.enabled = true;
-    }
-
-    IEnumerator MakeDuplicateGhost()
-    {
-        yield return new WaitForSeconds(_makeDuplicateGhostAfterSeconds);
-        _ghostsManager.ActivateAnyGhost();       // not actually instantiating a new ghost, just making any non-active ghost active
     }
 
     IEnumerator ReplaceMaterialWithOriginal(float duration, Material originalMaterial)

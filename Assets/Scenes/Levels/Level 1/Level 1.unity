@@ -42034,7 +42034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 583.8
+      value: 486.9
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42042,7 +42042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 408.5
+      value: 407.3
       objectReference: {fileID: 0}
     - target: {fileID: 9040020571906894573, guid: 520da84aa0f21314b8bc2e155d6ecd68, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94975,6 +94975,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 130912, guid: 9e6595faa92cb044993f2ce0fedd7047, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 445882, guid: 9e6595faa92cb044993f2ce0fedd7047, type: 3}
       propertyPath: m_RootOrder
       value: 3942
@@ -106836,6 +106840,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+--- !u!1 &728099241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728099242}
+  m_Layer: 0
+  m_Name: -------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728099242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728099241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &728119365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116631,6 +116666,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7a8d6bb394f243445b9377162ba792a8, type: 2}
+    - target: {fileID: 6595826, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
+      propertyPath: m_Size.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595826, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
+      propertyPath: m_Center.z
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595826, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -116638,6 +116685,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 166910, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
       insertIndex: -1
       addedObject: {fileID: 798617401}
+    - targetCorrespondingSourceObject: {fileID: 166910, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 798617405}
   m_SourcePrefab: {fileID: 100100000, guid: 7c026980fc17fa642b7a22557ebb0007, type: 3}
 --- !u!1001 &794049965
 PrefabInstance:
@@ -117674,6 +117724,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InvisibleObject
   invisibleMaterial: {fileID: 2100000, guid: d719a294fbb65a34b932927550e8a909, type: 2}
+--- !u!114 &798617405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798617396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f7e5f996d36c3428c1a308ebb80168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InvisibleDoorCollision
 --- !u!4 &798881123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 486830, guid: 06e456f55e6fa06438fb977ee919a779, type: 3}
@@ -235784,7 +235846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 404500, guid: 5400facbffd6b5443b144ee5f7c15a1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 404500, guid: 5400facbffd6b5443b144ee5f7c15a1c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -321264,3 +321326,4 @@ SceneRoots:
   - {fileID: 872115763}
   - {fileID: 1694752728}
   - {fileID: 243081361}
+  - {fileID: 728099242}

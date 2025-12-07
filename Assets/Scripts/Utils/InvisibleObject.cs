@@ -7,6 +7,9 @@ public class InvisibleObject : MonoBehaviour
 
     private MeshRenderer meshRenderer;
     private Material[] originalMaterials;       // The material to use when the object become visible
+    private bool _isVisible = false;
+
+    public bool IsVisible => _isVisible;
 
     void Awake()
     {
@@ -14,6 +17,7 @@ public class InvisibleObject : MonoBehaviour
         {
             originalMaterials = meshRenderer.materials;
             meshRenderer.materials = new Material[] { invisibleMaterial };
+            _isVisible = false;
         }
     }
 
@@ -22,5 +26,6 @@ public class InvisibleObject : MonoBehaviour
         if (meshRenderer == null) return;
 
         meshRenderer.materials = originalMaterials;
+        _isVisible = true;
     }
 }

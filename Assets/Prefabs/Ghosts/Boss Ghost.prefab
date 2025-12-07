@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4984372218533824959
+--- !u!1 &8007154182073029827
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5543839969803173630}
-  - component: {fileID: 6796856949004183078}
-  - component: {fileID: 8339721403936668137}
-  - component: {fileID: 1946033571540573545}
-  - component: {fileID: 2215782392577123475}
-  - component: {fileID: 2465185465335181766}
+  - component: {fileID: 4056130027825525552}
+  - component: {fileID: 711214442791254320}
+  - component: {fileID: 1708331211963337626}
+  - component: {fileID: 6594732455102245571}
+  - component: {fileID: 5974556040143563871}
+  - component: {fileID: 1745569505340567041}
   m_Layer: 3
-  m_Name: Ghost
+  m_Name: Boss Ghost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5543839969803173630
+--- !u!4 &4056130027825525552
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 491.6784, y: 19.07, z: 409.9899}
+  m_LocalPosition: {x: 550.4, y: 23.4, z: 381.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5433187828687454545}
+  - {fileID: 386048090770959725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6796856949004183078
+--- !u!95 &711214442791254320
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: db38b57ee25429f4abf56cb30b9e2d62, type: 2}
@@ -59,13 +59,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!195 &8339721403936668137
+--- !u!195 &1708331211963337626
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.7443217
@@ -81,13 +81,13 @@ NavMeshAgent:
   m_BaseOffset: 1.17
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1946033571540573545
+--- !u!114 &6594732455102245571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
@@ -113,7 +113,7 @@ MonoBehaviour:
           m_Value0: 1
           m_Value1: 0
         Name: Self
-        m_Value: {fileID: 4984372218533824959}
+        m_Value: {fileID: 8007154182073029827}
     - rid: 2312925419361796370
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -129,7 +129,7 @@ MonoBehaviour:
           m_Value0: 601766925339376551
           m_Value1: 17549755018904617994
         Name: GhostAnimator
-        m_Value: {fileID: 6796856949004183078}
+        m_Value: {fileID: 711214442791254320}
     - rid: 2312925425365681112
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -146,34 +146,31 @@ MonoBehaviour:
           m_Value1: 12297142727464804883
         Name: WaitTimeAfterAttack
         m_Value: 1
---- !u!114 &2215782392577123475
+--- !u!114 &5974556040143563871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c8e5bd40dc5674d8e685a05c8642e0, type: 3}
+  m_Script: {fileID: 11500000, guid: ea71e70dc56b5954da22e620445c39af, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NormalGhostController
-  _giveDamageToPlayer: 10
-  _noOfHitsCanBeTaken: 3
-  _scaleToBeReducedTo: 0.8
-  _forceToBeApplied: 20
-  _reactivateGhostAfterSeconds: 4
+  m_EditorClassIdentifier: Assembly-CSharp::BossGhostController
+  _giveDamageToPlayer: 50
+  _noOfHitsCanBeTaken: 10
+  _scaleToBeReducedTo: 0.92
+  _forceToBeApplied: 2
+  _reactivateGhostAfterSeconds: 1.5
   _damageTakenMaterial: {fileID: 2100000, guid: cd427229f1d681f459c6541fe1e1e74b, type: 2}
-  _makeDuplicateGhostAfterSeconds: 30
-  _activateOnLoad: 0
-  _canMakeDuplicateGhost: 1
---- !u!136 &2465185465335181766
+--- !u!136 &1745569505340567041
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984372218533824959}
+  m_GameObject: {fileID: 8007154182073029827}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -190,13 +187,13 @@ CapsuleCollider:
   m_Height: 2.0092888
   m_Direction: 1
   m_Center: {x: 0, y: -0.17989731, z: -0.03}
---- !u!1001 &5542865672655677114
+--- !u!1001 &203011404761107078
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5543839969803173630}
+    m_TransformParent: {fileID: 4056130027825525552}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
       propertyPath: m_LocalScale.x
@@ -266,6 +263,14 @@ PrefabInstance:
       propertyPath: m_RenderingLayerMask
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3aade6713cfd8f246a2ba8d50c751f9e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ff6033303517fd241bc7967b0e43ad56, type: 2}
     - target: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
       propertyPath: m_Name
       value: Model
@@ -288,26 +293,28 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2655572513089534177}
+      addedObject: {fileID: 6554450016672724429}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2929141121762748375}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4062414993362468421}
+      addedObject: {fileID: 8940157187823632325}
   m_SourcePrefab: {fileID: 100100000, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
---- !u!1 &4624457016244706283 stripped
+--- !u!4 &386048090770959725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
+  m_PrefabInstance: {fileID: 203011404761107078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1013402403685185495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
-  m_PrefabInstance: {fileID: 5542865672655677114}
+  m_PrefabInstance: {fileID: 203011404761107078}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2655572513089534177
+--- !u!64 &6554450016672724429
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4624457016244706283}
+  m_GameObject: {fileID: 1013402403685185495}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -323,33 +330,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3772797090071207700, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
---- !u!114 &2929141121762748375
+--- !u!114 &8940157187823632325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4624457016244706283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d37fef385950e4ebd6ecc5d80f3404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InvisibleObject
-  invisibleMaterial: {fileID: 2100000, guid: d719a294fbb65a34b932927550e8a909, type: 2}
---- !u!114 &4062414993362468421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4624457016244706283}
+  m_GameObject: {fileID: 1013402403685185495}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f1c133baec0b504f829f1e14a285a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostCollisionHandler
---- !u!4 &5433187828687454545 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60820e5f6d60f0642b57180cb5540e49, type: 3}
-  m_PrefabInstance: {fileID: 5542865672655677114}
-  m_PrefabAsset: {fileID: 0}
