@@ -46,7 +46,7 @@ public class PlayerHealth : Health
             // check if enough time since last damage
             if (_timeSinceLastDamage < _takeNextDamageAfter) return;
 
-            if (!collision.transform.parent.TryGetComponent(out GhostController ghostController)) return;
+            if (!collision.transform.parent.TryGetComponent(out NormalGhostController ghostController)) return;
 
             // check if ghost attacking
             if (ghostController.IsAttacking) TakeDamage(ghostController.DamageToPlayer);

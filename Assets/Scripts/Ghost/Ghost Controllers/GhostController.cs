@@ -7,10 +7,6 @@ using UnityEngine.AI;
 public abstract class GhostController : MonoBehaviour
 {
     #region Serialized Properties
-    [Header("General Settings")]
-    [Tooltip("Amount of damage the ghost will give to the player using Headbutt")]
-    [SerializeField] private float _giveDamageToPlayer = 10f;
-
     [Header("Got Hit Settings")]
     [Tooltip("No. of times the ghost can be hit before it is deactivated")]
     [SerializeField] private int _noOfHitsCanBeTaken = 3;
@@ -25,7 +21,6 @@ public abstract class GhostController : MonoBehaviour
 
     #region Private Properties
     private bool _isAttacking = false;
-    private int _noOfHitsTaken = 0;
     private bool _isDead = false;
     private bool _isActivated = false;
     private BehaviorGraphAgent _behaviorGraphAgent;
@@ -35,10 +30,13 @@ public abstract class GhostController : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     #endregion
 
+    #region Protected Properties
+    protected int _noOfHitsTaken = 0;
+    #endregion
+
     #region Public Properties
     public bool IsDead => _isDead;
     public bool IsAttacking => _isAttacking;
-    public float DamageToPlayer => _giveDamageToPlayer;
     #endregion
 
     void OnDisable()
@@ -90,7 +88,6 @@ public abstract class GhostController : MonoBehaviour
 
     public void OnHitByPlayerAxe(Vector3 hitDirection)
     {
-        // TODO: show hit animation and play sfx
         if (_noOfHitsTaken >= _noOfHitsCanBeTaken) return;
 
         _noOfHitsTaken++;
@@ -125,6 +122,8 @@ public abstract class GhostController : MonoBehaviour
             Activate(false);
             _ghostMeshCollider.enabled = false;
         }
+
+        // TODO: play sfx
     }
 
     private void ResetHitValues()

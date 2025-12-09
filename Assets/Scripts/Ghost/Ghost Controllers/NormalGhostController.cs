@@ -4,6 +4,10 @@ using UnityEngine;
 public class NormalGhostController : GhostController
 {
     #region Serialized Properties
+    [Header("General Settings")]
+    [Tooltip("Amount of damage the ghost will give to the player using Headbutt")]
+    [SerializeField] private float _giveDamageToPlayer = 10f;
+
     [Header("Normal Ghost Settings")]
     [Tooltip("Time in seconds after which the ghost will make a duplicate ghost")]
     [SerializeField] private float _makeDuplicateGhostAfterSeconds = 30f;
@@ -13,6 +17,10 @@ public class NormalGhostController : GhostController
 
     #region Private Properties
     private GhostsManager _ghostsManager;
+    #endregion
+
+    #region Public Properties
+    public float DamageToPlayer => _giveDamageToPlayer;
     #endregion
 
     protected override void Awake()

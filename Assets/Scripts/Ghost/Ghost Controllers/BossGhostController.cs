@@ -1,8 +1,8 @@
+using System;
+
 public class BossGhostController : GhostController
 {
-    #region Serialized Properties
-
-    #endregion
+    public static event Action OnBossGhostDeath = delegate { };
 
     protected override void Start()
     {
@@ -10,5 +10,13 @@ public class BossGhostController : GhostController
 
         // activating boss ghost on load
         Activate();
+    }
+
+    public override void Activate(bool activate = true)
+    {
+        base.Activate(activate);
+
+        // boss ghost died
+        if (!activate) OnBossGhostDeath?.Invoke();
     }
 }
