@@ -8294,6 +8294,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 402812, guid: 3852c07710f30b64c9aea4fdd03eb915, type: 3}
   m_PrefabInstance: {fileID: 1715612888}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311446572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8007154182073029827, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+  m_PrefabInstance: {fileID: 1766986181619951732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311446579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311446572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1976aed2060346540bf478af33f13486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossFinalAttack
 --- !u!4 &1311831422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475506, guid: 96d3d3f155ce5f945b77b4bfd101f7c3, type: 3}
@@ -15087,9 +15104,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 386048090770959725, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4056130027825525552, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 550.4
+      value: 553.14
       objectReference: {fileID: 0}
     - target: {fileID: 4056130027825525552, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15128,17 +15173,53 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: 'managedReferences[2939276262175408545]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[BossFinalAttack,
+        Assembly-CSharp]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: managedReferences[2939276262175408545].Name
+      value: BossFinalAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_BlackboardVariableOverridesList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
       propertyPath: managedReferences[2312925419361796370].m_Value
       value: 
       objectReference: {fileID: 1908334061}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: managedReferences[2939276262175408545].m_Value
+      value: 
+      objectReference: {fileID: 1311446579}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[7]'
+      value: 2939276262175408545
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: managedReferences[2939276262175408545].GUID.m_Value0
+      value: 4324859383694008459
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594732455102245571, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: managedReferences[2939276262175408545].GUID.m_Value1
+      value: 13009691462051992239
+      objectReference: {fileID: 0}
     - target: {fileID: 8007154182073029827, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
       propertyPath: m_Name
       value: Boss Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 8940157187823632325, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8007154182073029827, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1311446579}
   m_SourcePrefab: {fileID: 100100000, guid: ab53d1f9f2dd41a479132f59979a6dc5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

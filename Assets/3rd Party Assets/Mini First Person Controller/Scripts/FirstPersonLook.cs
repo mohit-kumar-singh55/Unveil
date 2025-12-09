@@ -6,8 +6,19 @@ public class FirstPersonLook : MonoBehaviour
     public float sensitivity = 2;
     public float smoothing = 1.5f;
 
+    bool canMove = true;
     Vector2 velocity;
     Vector2 frameVelocity;
+
+    void OnEnable()
+    {
+        BossFinalAttack.OnBossFinalAttackStart += OnBossAttackStart;
+    }
+
+    void OnDisable()
+    {
+        BossFinalAttack.OnBossFinalAttackStart -= OnBossAttackStart;
+    }
 
     void Reset()
     {
@@ -24,6 +35,8 @@ public class FirstPersonLook : MonoBehaviour
 
     void Update()
     {
+        if (!canMove) return;
+
         // Get smooth velocity.
         Vector2 mouseDelta = new(character.lookInput.x, character.lookInput.y);
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
@@ -35,4 +48,6 @@ public class FirstPersonLook : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
     }
+
+    void OnBossAttackStart(Transform ghostBossTransform) => canMove = false;
 }

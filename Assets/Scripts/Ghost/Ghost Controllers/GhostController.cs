@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(BehaviorGraphAgent), typeof(NavMeshAgent))]
-public class GhostController : MonoBehaviour
+public abstract class GhostController : MonoBehaviour
 {
     #region Serialized Properties
     [Header("General Settings")]

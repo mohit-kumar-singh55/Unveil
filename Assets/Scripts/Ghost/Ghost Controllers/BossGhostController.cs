@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class BossGhostController : GhostController
 {
     #region Serialized Properties

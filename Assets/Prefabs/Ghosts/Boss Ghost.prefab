@@ -100,6 +100,8 @@ MonoBehaviour:
   - rid: 2312925425365680356
   - rid: 2312925425365681112
   - rid: 2312925469032055126
+  - rid: 2939276261172446181
+  - rid: 2939276262175408256
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -146,6 +148,22 @@ MonoBehaviour:
           m_Value1: 12297142727464804883
         Name: WaitTimeAfterAttack
         m_Value: 1
+    - rid: 2939276261172446181
+      type: {class: 'BlackboardVariable`1[[GhostType, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11682638554868032933
+          m_Value1: 15368775071388924801
+        Name: CurrentGhostType
+        m_Value: 1
+    - rid: 2939276262175408256
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16686836364430194469
+          m_Value1: 3213060882136803582
+        Name: DistanceThreshold
+        m_Value: 2
 --- !u!114 &5974556040143563871
 MonoBehaviour:
   m_ObjectHideFlags: 0
